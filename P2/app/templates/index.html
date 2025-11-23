@@ -1,0 +1,52 @@
+{%extends "template.html"%}
+
+{%block titulo%}Home{%endblock%}
+
+{%block conteudo%}
+    <h1>{{ pagina.nome_do_site }}</h1>
+
+<img src="{{ pagina.logo.url }}" alt="Logo">
+
+<p>{{ pagina.texto_chamada }}</p>
+
+<section>
+    <h2>Sobre nós</h2>
+    <img src="{{ pagina.imagem_sobre.url }}" alt="Sobre">
+    <p>{{ pagina.texto_sobre }}</p>
+</section>
+
+<section>
+    <h2>Nossos Produtos</h2>
+
+    {% for produto in produtos %}
+        <div class="card-produto">
+            <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+
+            <h3>{{ produto.nome }}</h3>
+            <p>{{ produto.descricao }}</p>
+
+            <span class="preco">R$ {{ produto.preco }}</span>
+
+            <a href="#" class="btn-comprar">Comprar</a>
+        </div>
+    {% endfor %}
+</section>
+<section class="contato">
+    <h2>Contato</h2>
+
+    <p><strong>Endereço:</strong> {{ pagina.endereco }}</p>
+    <p><strong>Whatsapp:</strong> {{ pagina.whatsapp }}</p>
+    <p><strong>E-mail:</strong> {{ pagina.email }}</p>
+
+    <form method="post" action="{% url 'salvar_contato' %}">
+        {% csrf_token %}
+        <textarea name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+<div>
+    <p><strong>Endereço:</strong> {{ pagina.endereco }}</p>
+    <p><strong>E-mail:</strong> {{ pagina.email }}</p>
+    <p><strong>Whatsapp:</strong> {{ pagina.whatsapp }}</p>
+</div>
+{%endblock%}

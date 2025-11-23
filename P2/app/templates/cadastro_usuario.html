@@ -1,0 +1,38 @@
+{%extends "template.html"%}
+
+{%block titulo%}Login{%endblock%}
+
+{%block conteudo%}
+
+     <h1>Cadastro de Usuário</h1>
+    <form action="post">
+        {%csrf_token%}
+
+        <label for="id_username">Usuário:</label>
+        {{form.username}}
+
+        <label for="id_email">Email:</label>
+        {{form.email}}
+
+        <label for="id_password1">Senha:</label>
+        {{form.password1}}
+
+        {% if form.password1.help_text %}
+            {{ form.password1.help_text|safe }}
+        {% endif %}
+
+        <label for="id_password1">Confirme a senha:</label>
+        {{form.password2}}
+
+        {% if form.password2.help_text %}
+            {{ form.password2.help_text|safe }}
+        {% endif %}
+
+        <input type="submit" value="Cadastrar">
+    </form>
+    <p>
+        Já tem conta? 
+        <a href="{%url 'login.html'%}">Faça login</a>
+    </p>
+
+{%endblock%}
