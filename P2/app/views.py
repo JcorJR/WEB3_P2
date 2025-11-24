@@ -36,7 +36,7 @@ def loginUsuario(request):
             return redirect('dashboard.html')
         else:
             messages.error(request, "Usuário ou senha inválidos") 
-    return render('login.html')
+    return render(request, 'login.html')
 
 def cadastroUsuario(request):
     formulario = FormUsuario(request.POST or None)

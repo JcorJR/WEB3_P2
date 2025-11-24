@@ -38,7 +38,7 @@
     <p><strong>Whatsapp:</strong> {{ pagina.whatsapp }}</p>
     <p><strong>E-mail:</strong> {{ pagina.email }}</p>
 
-    <form method="post" action="{% url 'salvar_contato' %}">
+    <form method="post" action="{% url 'cadastroUsuario' %}">
         {% csrf_token %}
         <textarea name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
         <button type="submit">Enviar</button>

@@ -8,7 +8,7 @@
     {%for msg in messages%}
         <p>{{msg}}</p>
     {%endfor%}
-{%endeif%}
+{%endif%}
 
     <h1>Login</h1>
     <form action="post">
@@ -25,6 +25,6 @@
     </form>
     <p>
         Não tem conta?
-        <a href="{%url 'login.html'%}">Cadastre-se aqui</a>
+        <a href="{%url 'cadastroUsuario'%}">Cadastre-se aqui</a>
     </p>
 {%endblock%}

@@ -7,6 +7,8 @@ urlpatterns = [
     #Rotas do CRUD Usuário
     path('dashboard', views.dashboard, name='dashboard'),
     path('login', views.loginUsuario, name='loginUsuario'),
-    path('cadastro_usuario', views.cadastroUsuario, name='cadastroUsuario'),
+    path('cadastro', views.cadastroUsuario, name='cadastroUsuario'),
     path('logout', views.logoutUsuario, name='logoutUsuario'),
+    
+    # path('contato', )
 ]
